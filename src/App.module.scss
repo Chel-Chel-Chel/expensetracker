@@ -1,0 +1,13 @@
+.container {
+  background-color: #111;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s linear;
+}
+
+.submitted {
+  background-color:  rgba(120, 2, 255, 0.3);
+}
