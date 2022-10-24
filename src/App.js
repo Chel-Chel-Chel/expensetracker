@@ -19,9 +19,10 @@ function App() {
 
   const handleSubmit = (newExpense) => {
     setSubmitted(true);
-    setData([newExpense, ...data]);
+
     setTimeout(() => {
       setSubmitted(false);
+      setData([newExpense, ...data]);
     }, 1000);
   };
 

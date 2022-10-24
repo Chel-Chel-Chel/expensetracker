@@ -9,6 +9,8 @@ import styles from "./Form.module.scss";
 const Form = ({ submitForm }) => {
   const [expense, setExpense] = useState("");
   const [amount, setAmount] = useState("");
+  const [inputColor, setInputColor] = useState(false);
+  const [line, setLine] = useState(false);
 
   const handleExpense = (event) => {
     setExpense(event.target.value);
@@ -22,11 +24,41 @@ const Form = ({ submitForm }) => {
     event.preventDefault();
 
     if (expense !== "" && amount > 0) {
-      submitForm({ expense: expense, amount: +amount, id: uuidv4() });
+      const date = new Date();
+      const expenseDate = [
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+      ];
+      const [year, month, day, hours, minutes] = expenseDate;
+      submitForm({
+        expense: expense,
+        amount: +amount,
+        id: uuidv4(),
+        year: year,
+        month: month,
+        day: day,
+        hours: hours,
+        minutes: minutes,
+      });
 
-      setExpense("");
-      setAmount("");
+      setLine(true);
+      setTimeout(() => {
+        setLine(false);
+        setExpense("");
+        setAmount("");
+      }, 1000);
     }
+  };
+
+  const handleMouseEnter = () => {
+    setInputColor(true);
+  };
+
+  const handleMouseLeave = () => {
+    setInputColor(false);
   };
 
   return (
@@ -37,6 +69,7 @@ const Form = ({ submitForm }) => {
           placeholder="expense..."
           onChange={handleExpense}
           value={expense}
+          className={`${inputColor ? `${styles.colored}` : ""}`}
         />
 
         <input
@@ -45,12 +78,15 @@ const Form = ({ submitForm }) => {
           placeholder="amount($)..."
           onChange={handleAmount}
           value={amount}
+          className={`${inputColor ? `${styles.colored}` : ""}`}
         />
       </div>
-      <button>
+      <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         Submit <MdSend className={styles.btnIcon} />
       </button>
-      <div className={styles.line}></div>
+      <div
+        className={`${styles.line} ${line ? `${styles.lineAnimation}` : ""}`}
+      ></div>
     </form>
   );
 };

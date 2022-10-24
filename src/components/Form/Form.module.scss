@@ -48,6 +48,8 @@
     border-bottom: 1px solid #000;
     font-size: 1.2rem;
     color: #fff;
+    transition: 0.3s linear;
+    
 
     &:focus {
       outline: none;
@@ -59,13 +61,24 @@
       opacity: 1; /* Firefox */
     }
     
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
       color: rgba(120, 2, 255, 0.3);
     }
     
-    ::-ms-input-placeholder { /* Microsoft Edge */
+    &::-ms-input-placeholder { /* Microsoft Edge */
       color: rgba(120, 2, 255, 0.3);
     }
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    
+  }
+  .colored {
+    color: #000;
+    font-size: 1.4rem;
+    
   }
 }
 
@@ -77,6 +90,12 @@
   -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+  transition: 1s linear;
 }
+
+.lineAnimation {
+  width: 0%;
+}
+
 
 // 177, 145, 229
