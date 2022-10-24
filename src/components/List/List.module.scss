@@ -11,6 +11,7 @@
     letter-spacing: 2.2px;
     color: #fff;
     text-align: center;
+    margin-bottom: 5px;
   }
 
   .list {
@@ -23,6 +24,35 @@
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  .btnDelete {
+    height: 60px;
+    width: 260px;
+    margin: 10px auto;
+    font-weight: 600;
+    font-size: 1.7rem;
+    
+    text-transform: uppercase;
+    letter-spacing: 2.6px;
+    background-color: #000;
+    cursor: pointer;
+    transition: 0.3s linear;
+    border: none;
+    border-radius: 10px;
+    color: #99f;
+    border-bottom: 2px solid #111;
+    margin-bottom: 10px;
+
+    &:hover {
+      transform: scale(1.02);
+      color: #fff;
+    }
+
+    .btnIcon {
+      padding-top: 8px;
+      color: #fff;
     }
   }
 }

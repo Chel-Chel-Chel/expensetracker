@@ -1,5 +1,5 @@
 import React from "react";
-import { MdEdit, MdDelete } from "react-icons/md";
+import { MdSearch, MdDelete } from "react-icons/md";
 
 import styles from "./Item.module.scss";
 
@@ -40,7 +40,13 @@ const Item = ({ item }) => {
         .
       </p>
       <button className={styles.btnItem}>
-        <MdEdit className={styles.icon} />
+        <a
+          href={`https://www.google.com/search?q=${item.expense}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <MdSearch className={styles.icon} />
+        </a>
       </button>
       <button className={styles.btnItem}>
         <MdDelete className={styles.icon} />
