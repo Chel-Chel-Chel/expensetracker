@@ -18,9 +18,12 @@ const months = [
   "December",
 ];
 
-const Item = ({ item, handleDelete }) => {
+const Item = ({ item, handleDelete, itemStyle }) => {
   return (
     <section className={styles.item}>
+      <div
+        className={`${styles.fake} ${itemStyle ? `${styles.fakeActive}` : ""}`}
+      ></div>
       <h2 className={styles.heading}>{item.expense}</h2>
       <h3 className={styles.amount}>
         {item.amount}

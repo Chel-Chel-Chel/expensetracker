@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -8,15 +8,24 @@ import Form from "./components/Form/Form";
 import styles from "./App.module.scss";
 import List from "./components/List/List";
 
-const initialData = [
-  { expense: "pen", amount: 200, id: uuidv4() },
-  { expense: "car", amount: 2200, id: uuidv4() },
-];
+// const initialData = [
+//   { expense: "pen", amount: 200, id: uuidv4() },
+//   { expense: "car", amount: 2200, id: uuidv4() },
+// ];
+
+const initialData = localStorage.getItem("expenses")
+  ? JSON.parse(localStorage.getItem("expenses"))
+  : [];
 
 function App() {
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState(initialData);
   const [listStyle, setListStyle] = useState(false);
+  const [itemStyle, setItemStyle] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(data));
+  }, [data]);
 
   const handleSubmit = (newExpense) => {
     setSubmitted(true);
@@ -24,7 +33,7 @@ function App() {
     setTimeout(() => {
       setSubmitted(false);
       setData([newExpense, ...data]);
-    }, 1000);
+    }, 500);
   };
 
   const clearItems = () => {
@@ -33,12 +42,16 @@ function App() {
     setTimeout(() => {
       setListStyle(false);
       setData([]);
-    }, 500);
+    }, 800);
   };
 
   const handleDelete = (id) => {
     let tempExpenses = data.filter((item) => item.id !== id);
-    setData(tempExpenses);
+    setItemStyle(true);
+    setTimeout(() => {
+      setItemStyle(false);
+      setData(tempExpenses);
+    }, 400);
   };
 
   return (
@@ -54,7 +67,12 @@ function App() {
           }`}
         ></div>
         <Form submitForm={handleSubmit} />
-        <List data={data} clearItems={clearItems} handleDelete={handleDelete} />
+        <List
+          data={data}
+          clearItems={clearItems}
+          handleDelete={handleDelete}
+          itemStyle={itemStyle}
+        />
       </Card>
     </div>
   );

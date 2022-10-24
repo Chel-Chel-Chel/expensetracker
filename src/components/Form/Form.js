@@ -49,7 +49,7 @@ const Form = ({ submitForm }) => {
         setLine(false);
         setExpense("");
         setAmount("");
-      }, 1000);
+      }, 500);
     }
   };
 

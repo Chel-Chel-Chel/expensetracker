@@ -129,3 +129,22 @@
     }
   }
 }
+
+.fake {
+  position: fixed;
+  min-height: 80px;
+  margin: 5px auto;
+  width: 96%;
+
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #99f, #FFC0CB);
+  opacity: 0;
+  z-index: -1;
+  transition: 0.4s linear;
+}
+
+.fakeActive {
+  z-index: 0;
+  opacity: 1;
+}

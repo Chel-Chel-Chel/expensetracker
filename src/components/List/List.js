@@ -5,13 +5,20 @@ import { MdDelete } from "react-icons/md";
 
 import styles from "./List.module.scss";
 
-const List = ({ data, clearItems, handleDelete }) => {
+const List = ({ data, clearItems, handleDelete, itemStyle }) => {
   return (
     <main className={styles.main}>
       <h2 className={styles.heading}>Your Expenses</h2>
       <section className={styles.list}>
         {data.map((item) => {
-          return <Item item={item} key={item.id} handleDelete={handleDelete} />;
+          return (
+            <Item
+              item={item}
+              key={item.id}
+              handleDelete={handleDelete}
+              itemStyle={itemStyle}
+            />
+          );
         })}
       </section>
       {data.length > 0 && (
