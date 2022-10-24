@@ -81,7 +81,11 @@ const Form = ({ submitForm }) => {
           className={`${inputColor ? `${styles.colored}` : ""}`}
         />
       </div>
-      <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <button
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={styles.btn}
+      >
         Submit <MdSend className={styles.btnIcon} />
       </button>
       <div

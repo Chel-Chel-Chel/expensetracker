@@ -1,4 +1,5 @@
 import React from "react";
+import { MdEdit, MdDelete } from "react-icons/md";
 
 import styles from "./Item.module.scss";
 
@@ -33,10 +34,17 @@ const Item = ({ item }) => {
         <br />
         at{" "}
         <span className={styles.important}>
-          {item.hours}:{item.minutes}
+          {`${item.hours < 10 ? `0${item.hours}` : `${item.hours}`}`}:
+          {`${item.minutes < 10 ? `0${item.minutes}` : `${item.minutes}`}`}
         </span>
         .
       </p>
+      <button className={styles.btnItem}>
+        <MdEdit className={styles.icon} />
+      </button>
+      <button className={styles.btnItem}>
+        <MdDelete className={styles.icon} />
+      </button>
     </section>
   );
 };
