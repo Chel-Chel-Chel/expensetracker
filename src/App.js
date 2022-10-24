@@ -16,6 +16,7 @@ const initialData = [
 function App() {
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState(initialData);
+  const [listStyle, setListStyle] = useState(false);
 
   const handleSubmit = (newExpense) => {
     setSubmitted(true);
@@ -26,6 +27,20 @@ function App() {
     }, 1000);
   };
 
+  const clearItems = () => {
+    setListStyle(true);
+
+    setTimeout(() => {
+      setListStyle(false);
+      setData([]);
+    }, 500);
+  };
+
+  const handleDelete = (id) => {
+    let tempExpenses = data.filter((item) => item.id !== id);
+    setData(tempExpenses);
+  };
+
   return (
     <div
       className={`${styles.container} ${
@@ -33,9 +48,13 @@ function App() {
       }`}
     >
       <Card>
+        <div
+          className={`${styles.basicStyle} ${
+            listStyle ? `${styles.listStyle}` : ""
+          }`}
+        ></div>
         <Form submitForm={handleSubmit} />
-        <List data={data} />
-        <div>{submitted ? "submitted" : "not"}</div>
+        <List data={data} clearItems={clearItems} handleDelete={handleDelete} />
       </Card>
     </div>
   );

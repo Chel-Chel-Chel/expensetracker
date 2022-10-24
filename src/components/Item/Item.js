@@ -18,7 +18,7 @@ const months = [
   "December",
 ];
 
-const Item = ({ item }) => {
+const Item = ({ item, handleDelete }) => {
   return (
     <section className={styles.item}>
       <h2 className={styles.heading}>{item.expense}</h2>
@@ -48,7 +48,7 @@ const Item = ({ item }) => {
           <MdSearch className={styles.icon} />
         </a>
       </button>
-      <button className={styles.btnItem}>
+      <button className={styles.btnItem} onClick={() => handleDelete(item.id)}>
         <MdDelete className={styles.icon} />
       </button>
     </section>

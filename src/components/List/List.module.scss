@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  height: 330px;
+  height: 360px;
   width: 100%;
   margin: 10px auto 5px;
 
@@ -53,6 +53,20 @@
     .btnIcon {
       padding-top: 8px;
       color: #fff;
+    }
+  }
+
+  .totalSpending {
+    color: #ddd;
+    text-align: center;
+    letter-spacing: 2.1px;
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    .totalValue {
+      color: rgb(120, 2, 255);
+      font-weight: 600;
+      font-size: 1.6rem;
     }
   }
 }
