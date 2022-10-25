@@ -12,8 +12,8 @@
   }
 
   @media screen and (max-width: 600px) {
-    width: 98%;
-    height: 98%;
+    width: 98vw;
+    height: 98vh;
 
     &:hover {
       transform: scale(1.01);
