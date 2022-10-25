@@ -1,13 +1,12 @@
 .card {
-  width: 840px;
-  height: 540px;
+  width: 80%;
+  height: 80%;
   // background-color: #fff;
   background: linear-gradient(90deg, #99f, #FFC0CB);
-  border-radius: 10px;
+  border-radius: 18px;
   transition: 0.3s linear;
 
   &:hover {
     transform: scale(1.1);
-    border-radius: 18px;
   }
 }
