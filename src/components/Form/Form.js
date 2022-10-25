@@ -85,6 +85,7 @@ const Form = ({ submitForm }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={styles.btn}
+        aria-label="submit form"
       >
         Submit <MdSend className={styles.btnIcon} />
       </button>

@@ -23,7 +23,11 @@ const List = ({ data, clearItems, handleDelete, itemStyle }) => {
       </section>
       {data.length > 0 && (
         <>
-          <button className={styles.btnDelete} onClick={clearItems}>
+          <button
+            className={styles.btnDelete}
+            onClick={clearItems}
+            aria-label="clear all"
+          >
             clear all <MdDelete className={styles.btnIcon} />
           </button>
           <h3 className={styles.totalSpending}>

@@ -42,16 +42,21 @@ const Item = ({ item, handleDelete, itemStyle }) => {
         </span>
         .
       </p>
-      <button className={styles.btnItem}>
+      <button aria-label="search in google" className={styles.btnItem}>
         <a
           href={`https://www.google.com/search?q=${item.expense}`}
           target="_blank"
           rel="noreferrer"
+          aria-hidden="true"
         >
           <MdSearch className={styles.icon} />
         </a>
       </button>
-      <button className={styles.btnItem} onClick={() => handleDelete(item.id)}>
+      <button
+        aria-label="delete item"
+        className={styles.btnItem}
+        onClick={() => handleDelete(item.id)}
+      >
         <MdDelete className={styles.icon} />
       </button>
     </section>
