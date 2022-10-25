@@ -1,6 +1,7 @@
 .card {
   width: 80%;
   height: 80%;
+  position: relative;
   // background-color: #fff;
   background: linear-gradient(90deg, #99f, #FFC0CB);
   border-radius: 18px;
@@ -8,5 +9,14 @@
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 98%;
+    height: 98%;
+
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 }

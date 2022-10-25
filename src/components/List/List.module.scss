@@ -70,4 +70,12 @@
       font-size: 1.6rem;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    height: 70%;
+
+    .list {
+      height: 500px;
+    }
+  }
 }
